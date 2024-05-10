@@ -1,0 +1,109 @@
+RESTfull alkalmazás tervezése
+
+*************************************
+
+Alkalmazási kapcsolási módok - API
+Frontend - böngésző értelmezi
+Backend - távoli szervereket futak
+jelemzően van egy adatbázis amelybl adatokat nyerünk, JSON fájlokat küld
+
+tLISTA=[ {
+	nev: " ";
+	kor: 12;
+	 },
+	 {
+	nev: " "
+	kor: 34
+	 };
+]
+
+-->
+
+JSON formátumu szöveg:
+
+{
+"tLISTA": [
+		{
+		  "nev": " ";
+		  "kor":"12";
+		}
+		{
+		}
+	  ]
+}
+
+
+- Adatok cseréje!
+- A kommunikáció HTTP protokollon történik, de nem mindig.
+- A HTTP protokoll a weben legtöbbett használt protokoll, hyper text html nyelv. - ezeknek a szabályoknak az összesége.
+- Kéréseket indítanak (6db):
+POST, GET, DELETE, OPCIO, PATCH
+
+GET: -> LEKÉRI az adatokat az adatbázisból - pl. GET termekekTABLE
+POST: -> ADATOKAT küld, POST HTTP kéréssel.
+PUT: -> módosítja az adatbázisban az adatokat. pl. elírt terméknév esetén
+PATCH: -> szerkeszteni tudjuk az adatokat, módosít, szerkeszt
+DELETE: -> törli az adott rekordot az adatbázisból
+
+Szerver oldali alkalmazás:
+- Íródhat: JAVA, PYTHON, PHP nyelven
+
+
+
+
+
+Miért jó ez?
+
+Platformfüggetlen...
+
+- Bármelyik ügyfélnek meg kell tudnia hívni az API-t - függetlenül az API belső implementálásától.
+- Mindegy, milyen webszerver dolgozik a háttérben.
+
+
+
+
+
+REST - protokollfüggetlen, de legtöbbször a HTTP-t használja
+- Erőforrások köré van szervezve - pl. adatbázis rekordjai
+- URI az erőforrás azonosítója - http://localhost:3000/termek
+- Erőforrások reprezentációjának cseréjén alapul - JSON formátum
+- Egységes felületen történik - HTTP műveletek.
+	-> GET, POST, PUT, DELETE
+- Állapot nélküli kérésmodell - az információt csak maguk az erőforrások tárolják.
+
+
+
+
+
+A webes API az adatbázis absztrakciója
+
+...
+
+
+
+
+
+ERŐFORRÁS	POST			GET			PUT			DELETE
+/customers	Új ügyfél		Az összes ügyfél	Ögyfelek tömeges	Ügyfelek
+		létrehozása		beolvasása		áltávolítása		törlése
+
+
+
+
+
+API kérések indítása kliens oldalról aszinkron módón
+- AJAX
+- Await FETCH
+
+
+
+
+
+Össszefoglalás
+
+KLIENS oldal:
+- Kérések küldése az API végpontok felé
+
+SZERVER oldal:
+- az API végpontoknak megfelelő adatokat állítja elő,
+- tehát műveleteket állítja elő az adatbázisból
